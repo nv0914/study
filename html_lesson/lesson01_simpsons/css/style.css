@@ -1,0 +1,23 @@
+img{
+    width: 320px;
+}
+h1{
+    background: lightsalmon;
+    color: deeppink;
+}
+h2{
+    background: greenyellow;
+    color: darkviolet;
+}
+p{
+    background: maroon;
+    color: grey;
+}
+ul{
+    background: #1517d7;
+    color: #1d4f5a;
+}
+li{
+    background: #fd11b2;
+    color: #bd5c25;
+}
