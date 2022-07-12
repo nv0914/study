@@ -62,3 +62,45 @@
     text-align: center;
     border: 1px solid black;
 }
+.container-flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.section{
+    background: #a7d5bb;
+    height: 600px;
+    width: 60%;
+    display: flex;
+    flex-flow: column wrap;
+}
+.header-bar{
+    padding: 30px 40px 20px 100px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+.logo{
+    width: 100px;
+    height: 50px;
+    border-radius: 10px;
+    background: #8B0000FF;
+}
+.icon{
+    font-size: 18px;
+    color: #8B0000FF;
+    margin: 0 20px 0 0;
+}
+.banner{
+    height: 400px;
+    background: darkgreen;
+    column-gap: 40px;
+}
+.widget{
+    background: #8B0000FF;
+    height: 120px;
+    width: 150px;
+    border-radius: 10px;
+    position: relative;
+    top: 50%
+}
