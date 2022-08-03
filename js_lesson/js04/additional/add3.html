@@ -632,15 +632,15 @@
       title: 'at nam consequatur ea labore ea harum',
       body: 'cupiditate quo est a modi nesciunt soluta\nipsa voluptas error itaque dicta in\nautem qui minus magnam et distinctio eum\naccusamus ratione error aut'
     }
-  ],
-          elements = []
+  ];
+  document.write('<div class="wrap">')
   for (const user of users) {
-    elements.push(`<div class="post-card">
+    document.write(`<div class="post-card">
     <h3>${user.id} - ${user.title}</h3>
     <p>${user.body}</p>
   </div>`)
   }
-  document.write(`<div class="wrap">${elements.join('')}</div>`)
+  document.write('</div>')
 </script>
 </body>
 </html>
