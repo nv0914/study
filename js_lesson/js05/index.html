@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0,
+          maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    // - створити функцію яка обчислює та повертає площу прямокутника зі сторонами а і б
+    const area = (a, b) => a * b;
+    console.log(area(4, 5));
+
+    // - створити функцію яка обчислює та повертає площу кола з радіусом r
+    const areaCircle = (r) => Math.floor(Math.PI * (r * r));
+    console.log(areaCircle(7));
+
+    // - створити функцію яка обчислює та повертає площу циліндру висотою h,
+    // та радіутом r
+    const areaCylinder = (r, h) => Math.floor(2 * (Math.PI * area(r, h)) + 2 *
+        areaCircle(r));
+    console.log(areaCylinder(5, 8))
+
+    // - створити функцію яка приймає масив та виводить кожен його елемент
+    const everyElem = (arr) => {
+        for (const arrElement of arr) {
+            console.log(arrElement)
+        }
+    }
+    everyElem([2, 4, 3, 6, 7, 8, 9, 0])
+
+    // - створити функцію яка створює параграф з текстом. Текст задати через
+    // аргумент
+    const someText = 'some Text';
+    const createTextParagraph = (text) => {
+        document.write(`<p>${text}</p>`)
+    }
+    createTextParagraph(someText)
+
+    // - створити функцію яка створює ul з трьома елементами li. Текст li
+    // задати через аргумент всім однаковий
+    const createThreeLi = () => {
+        document.write(`<ul>`);
+        document.write(`<li>Same Text for everything</li>`)
+        document.write(`<li>Same Text for everything</li>`)
+        document.write(`<li>Same Text for everything</li>`)
+        document.write(`</ul>`);
+    }
+    createThreeLi()
+
+    // - створити функцію яка створює ul з трьома елементами li. Текст li
+    // задати через аргумент всім однаковий. Кількість li визначається другим
+    // аргументом, який є числовим (тут використовувати цикл)
+    const createAnyLi = (numberOfLi, textOfLi) => {
+        document.write(`<ul>`);
+        for (let i = 1; i <= numberOfLi; i++) {
+            document.write(`<li>${textOfLi}</li>`)
+        }
+        document.write(`</ul>`);
+    }
+    createAnyLi(5, 'Even more of Li!!!')
+
+    // - створити функцію яка приймає масив примітивних елементів
+    // (числа,стрінги,булеві), та будує для них список
+    const arr = ['Russophobophobiac', 12, true, 'Your last Vacation', 18.77]
+    const createLiFromArray = (array) => {
+        document.write(`<ul>`);
+        for (let i = 0; i < array.length; i++) {
+            document.write(`<li>${array[i]}</li>`)
+        }
+        document.write(`</ul>`);
+    }
+    createLiFromArray(arr)
+
+    // - створити функцію яка приймає масив об'єктів з наступними полями
+    // id,name,age , та виводить їх в документ. Для кожного об'єкту окремий
+    // блок.
+    let usersWithId = [
+        {id: 21, name: 'vasya', age: 31, status: false},
+        {id: 24, name: 'petya', age: 30, status: true},
+        {id: 33, name: 'kolya', age: 29, status: true},
+        {id: 14, name: 'olya', age: 28, status: false}
+    ];
+    const listEveryProfile = (profileArray) => {
+        document.write('<div class="wrap">')
+        for (const value of profileArray) {
+            document.write(`<div class="card">
+    <h3>ID: ${value.id}, Name - ${value.name}</h3>
+    <p>${value.age} y.o</p>
+  </div>`)
+        }
+    }
+    listEveryProfile(usersWithId)
+
+
+    // - створити функцію яка повертає найменьше число з масиву
+    const listOfNumbers = [1, 6, 8, 9, 0, 5, 4, 3, 2, 67, 8, 9,]
+    const minValueOfArray = (arr) => {
+        arr.sort((a, b) => a - b);
+        return arr[0];
+    }
+    console.log(minValueOfArray(listOfNumbers))
+
+    // - створити функцію яка приймає масив чисел, сумує значення елементів
+    // масиву та повертає його. Приклад [1,2,10]->13
+    const sumOfElements = (array) => {
+        let sum = 0;
+        for (const arrayElement of array) {
+            sum += arrayElement
+        }
+        return sum
+    }
+    console.log(sumOfElements(listOfNumbers))
+
+</script>
+</body>
+</html>
