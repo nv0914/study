@@ -47,26 +47,31 @@ const userCard = (x) => {
         }
     }
 }
+
 class UserAccount {
     constructor(name) {
         this.name = name
     }
+
     cards = []
-    addCard(){
-        if(this.cards.length <= 3) {
+
+    addCard() {
+        if (this.cards.length <= 3) {
             this.cards.push(userCard(this.cards.length + 1))
-        }else{
+        } else {
             console.error('U have too many cards')
         }
-}
+    }
+
     getCardByKey(n) {
-        if(this.cards[n-1]) {
+        if (this.cards[n - 1]) {
             return this.cards[n - 1]
-        }else{
+        } else {
             console.error('Oops, wrong card')
         }
-        }
+    }
 }
+
 let user = new UserAccount('Bob');
 user.addCard()
 user.addCard()
@@ -74,7 +79,7 @@ let card1 = user.getCardByKey(1);
 let card2 = user.getCardByKey(2);
 card1.putCredits(500)
 card1.setTransactionLimit(800)
-card1.transferCredits(300,card2)
+card1.transferCredits(300, card2)
 card2.takeCredits(50)
 console.log(card1.getUserCardOptions());
 console.log(card2.getUserCardOptions());

@@ -5,6 +5,23 @@
     <title>Title</title>
 </head>
 <body>
-<script src="script.js"></script>
+<script>
+    function convertHTML(str) {
+        let convert = {
+            '&': '&amp;',
+            '<': '&lt;',
+            '>': '&gt;',
+            '"': '&quot;',
+            "'": '&apos;'
+        }
+        return str
+            .split("")
+            .map(value => convert[value] || value)
+            .join('')
+    }
+
+    console.log(convertHTML('Stuff in "quotation marks"'));
+
+</script>
 </body>
 </html>

@@ -42,26 +42,27 @@
 
     // - створити функцію яка створює ul з трьома елементами li. Текст li
     // задати через аргумент всім однаковий
-    const createThreeLi = () => {
+    const createThreeLi = (text) => {
         document.write(`<ul>`);
-        document.write(`<li>Same Text for everything</li>`)
-        document.write(`<li>Same Text for everything</li>`)
-        document.write(`<li>Same Text for everything</li>`)
+        document.write(`<li>${text}</li>`)
+        document.write(`<li>${text}</li>`)
+        document.write(`<li>${text}</li>`)
         document.write(`</ul>`);
     }
-    createThreeLi()
+    createThreeLi('Same Text Of Li')
 
     // - створити функцію яка створює ul з трьома елементами li. Текст li
     // задати через аргумент всім однаковий. Кількість li визначається другим
     // аргументом, який є числовим (тут використовувати цикл)
+    const textOfLi = 'Even more of Li!!!';
     const createAnyLi = (numberOfLi, textOfLi) => {
-        document.write(`<ul>`);
+        document.write("<ul>");
         for (let i = 1; i <= numberOfLi; i++) {
             document.write(`<li>${textOfLi}</li>`)
         }
         document.write(`</ul>`);
     }
-    createAnyLi(5, 'Even more of Li!!!')
+    createAnyLi(5, textOfLi)
 
     // - створити функцію яка приймає масив примітивних елементів
     // (числа,стрінги,булеві), та будує для них список

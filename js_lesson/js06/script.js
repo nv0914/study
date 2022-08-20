@@ -85,7 +85,7 @@ const createDeck = () => {
     for (let i = 0; i < color.length; i++) {
         for (let j = 0; j < value.length; j++) {
             if (value[j] === 'joker') {
-                let card = {color: color[i], value: value[j]};
+                let card = {color: color[i], cardSuit: null, value: value[j]};
                 rawDeck.push(card)
             } else {
                 for (let k = 0; k < cardSuit.length; k++) {

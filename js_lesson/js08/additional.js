@@ -1,30 +1,32 @@
 // - Створити клас або функцію конструктор, за допомоги якої можна створювати об'єкти наступного вигляду.
 // Конструктор повинен приймати значення для кожної властивості, в т.ч і для властивостей внутрішніх об'єктів
 
-class AdressGeoData {
-    constructor(lat, lng) {
-        this.geo = {
-            lat,
-            lng
-        }
-    }
-}
 
-class AdressData extends AdressGeoData {
+
+class AdressData{
     constructor(street, suite, city, zipcode) {
-        super(...adressGeo)
         this.adress = {
             street,
             suite,
             city,
             zipcode
         }
+}
+}
+
+class AdressGeoData extends AdressData{
+    constructor(lat,lng) {
+        super(...profileAdress)
+        this.adress.geo = {
+            lat,
+            lng
+        }
     }
 }
 
-class PersonalProfile extends AdressData {
+class PersonalProfile extends AdressGeoData {
     constructor(id, name, username, email, phone, website) {
-        super(...profileAdress);
+        super(...adressGeo);
         this.id = id;
         this.name = name;
         this.username = username;
@@ -151,7 +153,6 @@ let select = new CreateElementDescription('<select>', 'Тег <select>' +
     ' позволяет создать элемент интерфейса в виде раскрывающегося списка',)
 select.addAttrs(new CreateElementAttribute('required', 'Количество отображаемых строк списка.'))
 select.addAttrs(new CreateElementAttribute('tabindex', 'Определяет последовательность перехода между элементами при нажатии на клавишу Tab'))
-
 
 // Приклад результуючого об'єкту
 // {
