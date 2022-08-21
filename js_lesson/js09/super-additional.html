@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SA</title>
+</head>
+<body>
+
+
+<script>
+    let users = [{
+        name: 'vasya',
+        age: 31,
+        status: false,
+        address: {
+            city: 'Lviv',
+            country: 'Ukraine',
+            street: 'Shevchenko',
+            houseNumber: 1
+        }
+    }, {
+        name: 'petya',
+        age: 30,
+        status: true,
+        address: {
+            city: 'New York',
+            country: 'USA',
+            street: 'East str',
+            houseNumber: 21
+        }
+    }, {
+        name: 'kolya',
+        age: 29,
+        status: true,
+        address: {
+            city: 'Budapest',
+            country: 'Hungary',
+            street: 'Kuraku',
+            houseNumber: 78
+        }
+    }, {
+        name: 'olya',
+        age: 28,
+        status: false,
+        address: {
+            city: 'Prague',
+            country: 'Czech',
+            street: 'Paster',
+            houseNumber: 56
+        }
+    }, {
+        name: 'max',
+        age: 30,
+        status: true,
+        address: {
+            city: 'Istanbul',
+            country: 'Turkey',
+            street: 'Mikar',
+            houseNumber: 39
+        }
+    }, {
+        name: 'anya',
+        age: 31,
+        status: false,
+        address: {
+            city: 'Rio',
+            country: 'Brasil',
+            street: 'Ronaldi',
+            houseNumber: 5
+        }
+    }, {
+        name: 'oleg',
+        age: 28,
+        status: false,
+        address: {
+            city: 'Montreal',
+            country: 'Canada',
+            street: 'Acusto',
+            houseNumber: 90
+        }
+    }, {
+        name: 'andrey',
+        age: 29,
+        status: true,
+        address: {
+            city: 'Quebeck',
+            country: 'Canada',
+            street: 'Binaro',
+            houseNumber: 33
+        }
+    }, {
+        name: 'masha',
+        age: 30,
+        status: true,
+        address: {
+            city: 'Moscow',
+            country: 'Russia',
+            street: 'Gogolia',
+            houseNumber: 1
+        }
+    }, {
+        name: 'olya',
+        age: 31,
+        status: false,
+        address: {
+            city: 'Portland',
+            country: 'USA',
+            street: 'Forest str',
+            houseNumber: 4
+        }
+    }, {
+        name: 'max',
+        age: 31,
+        status: true,
+        address: {
+            city: 'Cairo',
+            country: 'Egypt',
+            street: 'Seashore',
+            houseNumber: 45
+        }
+    }
+    ];
+
+    // - З масиву users за допомогою циклу витягнути адреси користувачів і
+    // записати (скопіювати) їх в інший порожній масив.
+        let addressArr = []
+        for (const value of users) {
+            addressArr.push(value.address)
+        }
+        console.log(addressArr)
+
+    // - За допомоги циклу проітерувати масив users, записати кожного юзера у
+    // свій блок за допомоги document.createElement. Всі данні в одному блоці.
+    for (const value of users) {
+        let userElement = document.createElement('div');
+        userElement.innerText = `name: ${value.name}
+        age: ${value.age}
+        status: ${value.status}
+        address:
+            city: ${value.address.city}
+            country: ${value.address.country}
+            street: ${value.address.street}
+            houseNumber: ${value.address.houseNumber}`
+        document.body.append(userElement)
+    }
+    console.log(addressArr)
+
+    // - За допомоги циклу проітерувати масив users, записати кожного юзера
+    // в свій блок за допомоги document.createElement, розділивши
+    // всі властивості по своїм блокам (div>div*4)
+        function createElement(arr) {
+            for (const arrKey in arr) {
+                if (typeof arr[arrKey] !== 'object') {
+                    let newBlock = document.createElement('div');
+                    newBlock.innerText = `${arrKey}: ${arr[arrKey]}`
+                    document.body.append(newBlock)
+                } else {
+                    let newBlock = document.createElement('div');
+                    newBlock.innerText = `${arrKey}:`
+                    document.body.append(newBlock)
+                    createElement(arr[arrKey])
+                }
+            }
+        }
+
+        createElement(users)
+    // - За допомоги циклу проітерувати масив users, записати кожного юзера в
+    // свій блок за допомоги document.createElement, розділивши всі властивості
+    // по своїм блокам, блок з адресою зробити окремим блоком, з блоками для
+    // кожної властивості
+        for (const value of users) {
+            let wrap = document.createElement('div')
+            for (const valueKey in value) {
+                let objBlock = document.createElement('div')
+                if (typeof value[valueKey] !== 'object') {
+                    objBlock.innerText = `${valueKey}: ${value[valueKey]}`
+                    document.body.append(objBlock)
+                } else {
+                    let addressObj = value[valueKey]
+                    objBlock.innerText = `${valueKey}:`
+                    document.body.append(objBlock)
+                    for (const addressKey in addressObj) {
+                        let addressBlock = document.createElement('div')
+                        addressBlock.innerText = `${addressKey}: ${addressObj[addressKey]}`
+                        objBlock.append(addressBlock)
+                    }
+
+                }
+            }
+        }
+
+    let rules = [
+        {
+            title: 'Первое правило Бойцовского клуба.',
+            body: 'Никому не рассказывать о Бойцовском клубе.'
+        },
+        {
+            title: 'Второе правило Бойцовского клуба.',
+            body: 'Никогда никому не рассказывать о Бойцовском клубе.'
+        },
+        {
+            title: 'Третье правило Бойцовского клуба.',
+            body: 'В схватке участвуют только двое.'
+        },
+        {
+            title: 'Четвертое правило Бойцовского клуба.',
+            body: 'Не более одного поединка за один раз.'
+        },
+        {
+            title: 'Пятое правило Бойцовского клуба.',
+            body: 'Бойцы сражаются без обуви и голые по пояс.'
+        },
+        {
+            title: 'Шестое правило Бойцовского клуба.',
+            body: 'Поединок продолжается столько, сколько потребуется.'
+        },
+        {
+            title: 'Седьмое правило Бойцовского клуба.',
+            body: 'Если противник потерял сознание или делает вид, что потерял, или говорит «Хватит» — поединок окончен.'
+        },
+        {
+            title: 'Восьмое и последнее правило Бойцовского клуба.',
+            body: 'Новичок обязан принять бой.'
+        },
+    ];
+
+    // -Є масив котрий характеризує правила. Створити скрипт який ітерує цей
+    // масив, та робить з кожне правило в окремому блоці. При цьому в блоці,
+    // номер правила записати в свій блок, текст правила записати в свій
+    // окремий блок. Результатом відпрацювання скрипта повинна бути структура
+    // яка міститься в блоці wrap файла rule.html
+    let rulesWrap = document.createElement('div');
+    document.body.append(rulesWrap)
+    rules.forEach(value => {
+        let ruleWrap = document.createElement('div'),
+            ruleTitle = document.createElement('h2'),
+            ruleText = document.createElement('p');
+        rulesWrap.append(ruleWrap)
+        ruleTitle.innerText = value.title
+        ruleWrap.append(ruleTitle)
+        ruleText.innerText = value.body
+        ruleWrap.append(ruleText)
+    })
+
+
+</script>
+</body>
+</html>
