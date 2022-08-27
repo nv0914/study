@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Details</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        .wrap{display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+padding: 20px;
+        }
+.user-file{
+    background-color: #e1f6ff;
+    width: 500px;
+    padding: 30px;
+    margin-bottom: 20px;
+}
+h2{
+    font-family: SimSun, sans-serif;
+    margin: 0 0 3px 5px;
+    font-size: 22px;
+}
+span{
+    font-family: SimSun, sans-serif;
+    font-size: 22px;
+}
+button{
+    width: 90%;
+    height: 50px;
+    background-color: #e1f6ff;
+    border: none;
+    font-family: SimSun, sans-serif;
+    margin-bottom: 10px;
+}
+        button:hover{
+            background-color: #d1f1ff;
+
+        }
+        .user-posts{
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+            grid-row-gap: 5px;
+            grid-column-gap: 5px;
+        }
+        .post-title-wrap{
+background-color: #bae9ff;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        a{
+            padding: 10px;
+            background-color: #ffffff;
+            text-decoration: none;
+            color: #1c1c36;
+            font-family: SimSun, sans-serif;
+        }
+        a:hover{
+            background-color: #e0f3ff;
+        }
+        p{
+            font-family: SimSun, sans-serif;
+
+        }
+
+    </style>
+</head>
+<body><div class="wrap">
+<div class="user-file"></div>
+<div class="user-posts"></div>
+</div>
+<script>
+    // На странице user-details.html:
+    // 4 Вивести всю, без виключення, інформацію про об'єкт user на який клікнули
+    // 5 Додати кнопку "post of current user", при кліку на яку, з'являються title всіх постів поточного юзера
+    // (для получения постов используйте эндпоинт https://jsonplaceholder.typicode.com/users/USER_ID/posts)
+    // 6 Каждому посту додати кнопку/посилання, при кліку на яку відбувається перехід на сторінку post-details.html, котра має детальну інфу про поточний пост.
+    const userId = (new URL(document.location)).searchParams.get('id'),
+        userPosts = document.getElementsByClassName('user-posts')[0],
+        wrap = document.getElementsByClassName('wrap')[0]
+        userFile = document.getElementsByClassName('user-file')[0];
+    console.log(userId)
+    const createElement = (element, wrap) => {
+        for (const arrKey in element) {
+            if (typeof element[arrKey] !== 'object') {
+                let newBlock = document.createElement('h2');
+                newBlock.innerText = `${arrKey}: ${element[arrKey]}`
+                wrap.append(newBlock)
+            } else {
+                let newBlock = document.createElement('span');
+                newBlock.innerText = `${arrKey}:`
+                wrap.append(newBlock)
+                createElement(element[arrKey], wrap)
+            }
+        }
+    }
+    const addBtn = () => {
+        const button = document.createElement('button');
+        button.innerText = 'Posts of current user'
+        userFile.after(button)
+        button.addEventListener("click", () => {
+            fetch(`https://jsonplaceholder.typicode.com/users/${userId}/posts`)
+                .then(response => response.json())
+                .then(posts => posts.forEach(post => {
+                    const postTitles = document.createElement('div'),
+                        postBtn = document.createElement('a');
+                    postTitles.classList.add('post-title-wrap')
+                    postTitles.innerHTML = `<p>${post.title}</p>`
+                    postBtn.innerText = 'Post details'
+                    postBtn.href = `post-details.html?id=${post.id}`
+                    userPosts.append(postTitles)
+                    postTitles.append(postBtn)
+                    button.innerText = `These are ${posts.length} user's posts`
+                }))
+        },{once:true})
+    }
+
+    async function userBuilder() {
+        const respond =
+            await fetch(`https://jsonplaceholder.typicode.com/users/${userId}/`)
+                    .then(response => response.json())
+                    .then(user => {createElement(user, userFile)
+                    })
+        addBtn()
+    }
+    userBuilder()
+
+
+</script>
+</body>
+</html>

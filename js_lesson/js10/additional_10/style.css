@@ -1,0 +1,38 @@
+.carousel-wrap {
+    height: 300px;
+    width: 600px;
+    overflow: hidden;
+    background-color: rgba(255, 140, 0, 0.47);
+}
+
+.carousel {
+    transition-duration: 1s;
+    display: flex;
+}
+
+.image-frame {
+    height: 300px;
+    width: 600px;
+
+}
+
+.menu-btn {
+    cursor: pointer;
+}
+
+.menu-list {
+    display: none;
+    cursor: pointer;
+}
+
+.show {
+    display: block;
+}
+
+p {
+    display: inline;
+}
+
+a {
+    cursor: pointer;
+}

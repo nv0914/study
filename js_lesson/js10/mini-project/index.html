@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mini-project</title>
+    <style>
+        .users-wrap{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            justify-items: center;
+            grid-column-gap: 50px;
+            grid-row-gap: 50px;
+            padding: 20px 100px;
+            font-family: SimSun, sans-serif
+        }
+        .card{
+            width: 500px;
+            background-color: #e1f6ff;
+            padding: 50px;
+        }
+        a{
+            padding: 10px;
+            background-color: #ffffff;
+            text-decoration: none;
+            color: #1c1c36;
+            font-family: SimSun, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="users-wrap">
+    </div>
+
+
+<script>
+    // В index.html
+    // 1 отримати масив об'єктів з endpoint`а https://jsonplaceholder.typicode.com/users
+    // 2 Вивести id,name всіх user в index.html. Окремий блок для кожного user.
+
+        const usersWrap = document.getElementsByClassName('users-wrap')[0]
+    addEventListener('DOMContentLoaded', ()=>{
+        fetch('https://jsonplaceholder.typicode.com/users')
+            .then(response => response.json())
+            .then(users => users.forEach(value => {
+                let userWrap = document.createElement('div'),
+                    userTitle = document.createElement('h2'),
+                    userBtn = document.createElement('a');
+                userWrap.classList.add('card')
+                usersWrap.append(userWrap)
+                userTitle.innerText = `${value.id}: ${value.name}`
+                userBtn.innerText = 'Details'
+                userBtn.href = `user-details.html?id=${value.id}`
+                userWrap.append(userTitle)
+                userWrap.append(userBtn)
+            }))
+    })
+    // 3 Додати кожному блоку кнопку/посилання , при кліку на яку відбувається перехід  на сторінку user-details.html, котра має детальну інфорацію про об'єкт на який клікнули
+
+    // Стилизація проєкта -
+    // index.html - всі блоки з user - по 2 в рядок. кнопки/аосилвння розташувати під інформацією про user.
+    //     user-details.html - блок з інфою про user зверху сторінки. Кнопка нижчє, на 90% ширини сторінки, по центру.
+    //     блоки з короткою іфною про post - в ряд по 5 .
+    //     post-details.html - блок з інфою про пост зверху. Коментарі - по 4 в ряд.
+    //     Всі елементи котрі характеризують users, posts, comments візуалізувати, так, щоб було видно що це блоки (дати фон. марджини і тд)
+</script>
+</body>
+</html>

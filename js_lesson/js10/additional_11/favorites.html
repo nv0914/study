@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Favourites</title>
+</head>
+<body>
+<script>
+const favourites =
+    JSON.parse(window.localStorage.getItem('users')).forEach(value =>{
+        let block = document.createElement('div'),
+            button = document.createElement('button');
+        block.innerText = `
+        name: ${value.name}
+        age: ${value.age}
+        status: ${value.status}`
+        document.body.append(block)
+    })
+
+
+</script>
+</body>
+</html>

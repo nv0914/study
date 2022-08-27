@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List of products</title>
+    <style>
+        img {
+            height: 150px;
+            width: 150px;
+        }
+    </style>
+</head>
+<body>
+<h2>Products:</h2>
+<div class="products-wrap"></div>
+<button class="delete">Remove all</button>
+
+
+<script>
+    // list.html, при переході на який відобразити на сторінці всі товари.
+    // На сторінці  list.html побудувати кнопку яка видаляє всі товари з
+    // корзини та локалстораджа.
+    // До кожного товару додати кнопку, при кліку на яку з лс видаляється
+    // конкретний обраний  товар
+
+    let products = JSON.parse(window.localStorage.getItem('products')),
+        productsWrap = document.getElementsByClassName('products-wrap')[0];
+    products.forEach((value, index) => {
+        let productWrap = document.createElement('div'),
+            productTitle = document.createElement('h2'),
+            productQuantity = document.createElement('p'),
+            productPrice = document.createElement('p'),
+            productImage = document.createElement('img'),
+            deleteBtn = document.createElement('button');
+        productsWrap.append(productWrap)
+        productTitle.innerText = value.title
+        productQuantity.innerText = value.quantity
+        productPrice.innerText = value.price
+        productImage.src = `${value.image}`
+        deleteBtn.innerText = 'Delete'
+        productWrap.append(productTitle)
+        productWrap.append(productQuantity)
+        productWrap.append(productPrice)
+        productWrap.append(productImage)
+        productWrap.append(deleteBtn)
+        deleteBtn.addEventListener('click', e => {
+            products.splice(products[index], 1)
+            console.log(products)
+            window.localStorage.removeItem('products')
+            window.localStorage.setItem('products', JSON.stringify(products))
+            window.location.reload()
+        })
+    })
+    let removeButton = document.querySelector('.delete');
+    removeButton.addEventListener("click", () => {
+        window.localStorage.removeItem('products')
+        products = []
+        window.location.reload()
+        removeButton.remove()
+    })
+
+</script>
+</body>
+</html>

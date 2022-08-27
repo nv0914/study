@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Set product</title>
+</head>
+<body>
+<form name="setProduct">
+    <label for="title">Product Title</label>
+    <input type="text" name="product-title" id="title">
+    <label for="quantity">Quantity</label>
+    <input type="number" name="product-quantity" id="quantity">
+    <label for="price">Price</label>
+    <input type="number" step="0.01" name="product-price" id="price">
+    <label for="image">Image Link</label>
+    <input type="url" name="product-image" id="image">
+    <button id="submitBtn">Submit</button>
+</form>
+<a href="list.html">Checkout</a>
+<script>
+    // - Імітуємо наповнення інтернет магазину товарами :
+    //     Створити форму з наступними полями :
+    //     - назва товару
+    // - кількість товару
+    // - ціна товару
+    // - картинка товару (посилання з інтернету)
+let productForm = document.forms[0],
+    productTitle = productForm.title,
+    productQuantity = productForm.quantity,
+    productPrice = productForm.price,
+    productImage = productForm.image,
+    submitBtn = productForm.submitBtn,
+    productList = [];
+
+    // Зберігати товари в масив в локалсорадж. При збережені товару з форми,
+    // action не повинно відбуватись (preventDefault)
+    productForm.addEventListener('submit', (e)=>{
+        e.preventDefault()
+        productList.push({
+            title: productTitle.value,
+            quantity: productQuantity.value,
+            price: productPrice.value,
+            image: productImage.value,
+        })
+        window.localStorage.setItem('products', JSON.stringify(productList))
+    })
+    // створити елемент <a href='list.html'> На сторінку товарів</a>
+</script>
+</body>
+</html>
