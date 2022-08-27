@@ -12,7 +12,7 @@
 <body>
 <script>
 
-    let users = [
+    const users = [
         {name: 'vasya', age: 31, status: false},
         {name: 'petya', age: 30, status: true},
         {name: 'kolya', age: 29, status: true},
@@ -27,7 +27,7 @@
     ];
     // створити під кожен об'єкт свій блок з конопкою "додати до улюблених" при натисканні на яку об'єкт потрапляє до масиву favorites улюблених обраних об'єктів в локальному сховищі.
     // Створити сторніку favorites.html при переході на яку потрібно вивест в документ всіх обраних на попередньому етапі.
-
+    const favourites = []
     users.forEach(value => {
         let block = document.createElement('div'),
             button = document.createElement('button');
@@ -39,11 +39,9 @@
         button.innerText = 'Star'
         block.append(button)
         button.addEventListener('click', ()=>{
-            if (!window.localStorage.getItem('users')){
-                const favourites = [].push(value)
+                favourites.push(value)
                 console.log(favourites)
                 window.localStorage.setItem('users', (JSON.stringify(favourites)))
-            }
         }, {once: true})
     })
 
