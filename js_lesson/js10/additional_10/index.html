@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Additionals' Hell cp.1</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="menu">
+    <div class="menu-btn">Menu</div>
+    <ul class="menu-list">
+        <li class="menu-item">Link</li>
+        <li class="menu-item">Link</li>
+        <li class="menu-item">Link</li>
+        <li class="menu-item">Link</li>
+        <li class="menu-item">Link</li>
+    </ul>
+</div>
+<label for="swear-check">Your nickname</label><input type="text"
+                                                     name="swear-check"
+                                                     id="swear-check">
+<button id='btn' type="submit">Check</button>
+<div class="comments-wrap"></div>
+<label for="status">status</label>
+<input type="checkbox" name="filter" id="status">
+<label for="age">age</label>
+<input type="checkbox" name="filter" id="age">
+<label for="city">city</label>
+<input type="checkbox" name="filter"
+       id="city">
+<div class="load-array"></div>
+
+
+<div class="carousel-wrap">
+    <div class="carousel">
+        <img src="https://www.1zoom.me/prev/324/323795.jpg" alt=""
+             class="image-frame">
+        <img src="https://www.1zoom.me/prev/323/322504.jpg" alt=""
+             class="image-frame">
+        <img src="https://www.1zoom.me/prev/247/246508.jpg" alt=""
+             class="image-frame">
+        <img src="https://beautystage.com.ua/modules/ph_simpleblog/covers/15.jpg"
+             alt="" class="image-frame"></div>
+</div>
+<div>
+    <button class="switch">&#8592;</button>
+    <button class="switch">&#8594;</button>
+</div>
+<p class="some-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+    Harum in laboriosam perspiciatis recusandae repudiandae. A asperiores
+    consequuntur eligendi explicabo fugit molestiae molestias nihil placeat
+    quibusdam, quidem tempore totam unde voluptatum.</p>
+<script>
+    // - Сворити масив не цензцрних слів.
+    //   Сворити інпут текстового типу.
+    // const swears = ['arse',
+    //     'ass',
+    //     'bastard',
+    //     'bitch',
+    //     'bloody',
+    //     'bollocks',
+    //     'bugger',
+    //     'bullshit',
+    //     'Christ on a bike',
+    //     'Christ on a cracker',
+    //     'cock',
+    //     'cocksucker',
+    //     'crap',
+    //     'cunt',
+    //     'damn',
+    //     'dick',
+    //     'dickhead',
+    //     'dyke',
+    //     'frigger',
+    //     'fuck',
+    //     'goddamn',
+    //     'godsdamn',
+    //     'shit',
+    //     'wept',
+    //     'kike',
+    //     'nigga',
+    //     'nigra',
+    //     'piss',
+    //     'prick',
+    //     'pussy',
+    //     'shit',
+    //     'ass',
+    //     'shite',
+    //     'slut',
+    //     'son of a bitch',
+    //     'son of a whore',
+    //     'spastic',
+    //     'sweet',
+    //     'wanker'],
+    //     inputValue = document.getElementById('swear-check').value,
+    //     checkButton = document.getElementById('btn')
+
+    //   Якщо людина вводить слово і воно міститься в масиві не цензурних слів
+    //   кинути алерт з попередженням.
+    //   Перевірку робити при натисканні на кнопку
+    // checkButton.addEventListener('click',e =>{
+    //     e.preventDefault()
+    //     console.log(inputValue)
+    //     if(swears.some(value => value === inputValue)){
+    //         alert(`${inputValue} you!`)
+    //     }
+    // })
+
+    // - Сворити масив не цензцрних слів.
+    //     Сворити інпут текстового типу.
+    //     Потрібно перевіряти чи не містить ціле речення в собі погані слова.
+    //     Кинути алерт з попередженням у випадку якщо містить.
+    //     Перевірку робити при натисканні на кнопку
+    //     checkButton.addEventListener('click',e =>{
+    //         e.preventDefault()
+    // swears.forEach(value => {
+    //     if (inputValue.includes(value)){
+    //         console.log(value)
+    //     }
+    // })
+    //     })
+
+    // - Создайте меню, которое раскрывается/сворачивается при клике
+    /*    const menuTrigger = document.getElementsByClassName('menu-btn')[0],
+            menuList = document.querySelector('.menu-list');
+        menuTrigger.addEventListener('click', evt => {
+            menuList.classList.toggle('show')
+        })*/
+
+    // - Создать список комментариев , пример объекта коментария -
+    // {title : 'lorem', body:'lorem ipsum dolo sit ameti'}.
+    // Вывести список комментариев в документ, каждый в своем блоке.
+    // Добавьте каждому комментарию по кнопке для сворачивания его body.
+    /*
+        const commentsContent = [
+                {
+                    "postId": 1,
+                    "id": 1,
+                    "name": "id labore ex et quam laborum",
+                    "email": "Eliseo@gardner.biz",
+                    "body": "laudantium enim quasi est quidem magnam voluptate ipsam eos\ntempora quo necessitatibus\ndolor quam autem quasi\nreiciendis et nam sapiente accusantium"
+                },
+                {
+                    "postId": 1,
+                    "id": 2,
+                    "name": "quo vero reiciendis velit similique earum",
+                    "email": "Jayne_Kuhic@sydney.com",
+                    "body": "est natus enim nihil est dolore omnis voluptatem numquam\net omnis occaecati quod ullam at\nvoluptatem error expedita pariatur\nnihil sint nostrum voluptatem reiciendis et"
+                },
+                {
+                    "postId": 1,
+                    "id": 3,
+                    "name": "odio adipisci rerum aut animi",
+                    "email": "Nikita@garfield.biz",
+                    "body": "quia molestiae reprehenderit quasi aspernatur\naut expedita occaecati aliquam eveniet laudantium\nomnis quibusdam delectus saepe quia accusamus maiores nam est\ncum et ducimus et vero voluptates excepturi deleniti ratione"
+                },
+                {
+                    "postId": 1,
+                    "id": 4,
+                    "name": "alias odio sit",
+                    "email": "Lew@alysha.tv",
+                    "body": "non et atque\noccaecati deserunt quas accusantium unde odit nobis qui voluptatem\nquia voluptas consequuntur itaque dolor\net qui rerum deleniti ut occaecati"
+                },
+                {
+                    "postId": 1,
+                    "id": 5,
+                    "name": "vero eaque aliquid doloribus et culpa",
+                    "email": "Hayden@althea.biz",
+                    "body": "harum non quasi et ratione\ntempore iure ex voluptates in ratione\nharum architecto fugit inventore cupiditate\nvoluptates magni quo et"
+                },
+                {
+                    "postId": 2,
+                    "id": 6,
+                    "name": "et fugit eligendi deleniti quidem qui sint nihil autem",
+                    "email": "Presley.Mueller@myrl.com",
+                    "body": "doloribus at sed quis culpa deserunt consectetur qui praesentium\naccusamus fugiat dicta\nvoluptatem rerum ut voluptate autem\nvoluptatem repellendus aspernatur dolorem in"
+                },
+                {
+                    "postId": 2,
+                    "id": 7,
+                    "name": "repellat consequatur praesentium vel minus molestias voluptatum",
+                    "email": "Dallas@ole.me",
+                    "body": "maiores sed dolores similique labore et inventore et\nquasi temporibus esse sunt id et\neos voluptatem aliquam\naliquid ratione corporis molestiae mollitia quia et magnam dolor"
+                },
+                {
+                    "postId": 2,
+                    "id": 8,
+                    "name": "et omnis dolorem",
+                    "email": "Mallory_Kunze@marie.org",
+                    "body": "ut voluptatem corrupti velit\nad voluptatem maiores\net nisi velit vero accusamus maiores\nvoluptates quia aliquid ullam eaque"
+                },
+                {
+                    "postId": 2,
+                    "id": 9,
+                    "name": "provident id voluptas",
+                    "email": "Meghan_Littel@rene.us",
+                    "body": "sapiente assumenda molestiae atque\nadipisci laborum distinctio aperiam et ab ut omnis\net occaecati aspernatur odit sit rem expedita\nquas enim ipsam minus"
+                },
+                {
+                    "postId": 2,
+                    "id": 10,
+                    "name": "eaque et deleniti atque tenetur ut quo ut",
+                    "email": "Carmen_Keeling@caroline.name",
+                    "body": "voluptate iusto quis nobis reprehenderit ipsum amet nulla\nquia quas dolores velit et non\naut quia necessitatibus\nnostrum quaerat nulla et accusamus nisi facilis"
+                }],
+            commentsWrap = document.getElementsByClassName('comments-wrap')[0];
+        for (const value of commentsContent) {
+            let postComment = document.createElement('div')
+            postComment.classList.add('comment-block')
+            let moreBody = document.createElement('a');
+            moreBody.href = '#'
+            moreBody.innerText = '...more'
+            moreBody.classList.add('more-btn')
+            commentsWrap.append(postComment)
+            let title = document.createElement('h2'),
+                text = document.createElement('p');
+            text.classList.add('comment-text')
+            title.innerText = value.name
+            text.innerText = value.body.substring(0, 21)
+            postComment.append(title)
+            postComment.append(text)
+            postComment.append(moreBody)
+            moreBody.addEventListener('click', e => {
+                e.preventDefault()
+                if (moreBody.innerText === '...more') {
+                    text.innerText = value.body
+                    moreBody.innerText = '...less'
+                } else {
+                    text.innerText = value.body.substring(0, 21)
+                    moreBody.innerText = '...more'
+                }
+            })
+        }
+    */
+
+    // - Создайте кнопку, при клике на которую, она будет скрывать сама себя.
+    /*    let magicButton = document.createElement('button');
+        magicButton.innerText = 'Dont Push!'
+        document.body.append(magicButton)
+        magicButton.addEventListener('click', e => {
+            e.preventDefault()
+            magicButton.style.visibility = 'hidden'
+        })*/
+
+    // - Описати скріпт, котрий, якщо доєднати до будь-якої сторінки дозволить
+    // зробити наступне:
+    // При лівому кліку миші вивести в консоль інформацію про блок або
+    // елемент на який відбувся клік.
+    // Інформація яку потрібно вивести: Назва тегу, список класів, список
+    // ід, розміри в форматі висота*ширина
+    // document.addEventListener('click', event =>{
+    //     const target = event.target
+    //     console.log(`Tag: ${target.localName},
+    //     Class List: ${target.className},
+    //     Id: ${target.id},
+    //     Size:${target.clientHeight} x ${target.clientWidth}`)})
+
+    // - Описати скріпт, котрий, якщо доєднати до будь-якої сторінки дозволить зробити наступне:
+    //     При лівому кліку миші  зробить popup (спливаючий блок) в якому буде вся інформація про блок.
+    //     Інформація яку потрібно вивести в popup: Назва тегу, список класів, список ід, розміри в форматі висота*ширина
+    /*
+        document.addEventListener('click', event => {
+            const myStyles = `
+        display: block;
+        position: absolute
+        top: 50px;
+        z-index: 99999
+        width: 80%;
+        background-color: red;
+        color: black;
+        margin: 20px;
+        padding: 20px;
+        border: 2px solid black;
+    `;
+            const target = event.target
+            let popUp = document.createElement('div');
+            popUp.innerText = `
+            Tag: ${target.localName},
+      Class List: ${target.className},
+      Id: ${target.id},
+     Size:${target.clientHeight} x ${target.clientWidth}`
+            popUp.style.cssText  = myStyles
+            document.body.append(popUp)
+        })
+    */
+
+
+    // -- взять массив пользователей
+    let usersWithAddress = [
+        {
+            id: 1,
+            name: 'vasya',
+            age: 31,
+            status: false,
+            address: {city: 'Lviv', street: 'Shevchenko', number: 16}
+        },
+        {
+            id: 2,
+            name: 'petya',
+            age: 30,
+            status: true,
+            address: {city: 'Kyiv', street: 'Shevchenko', number: 1}
+        },
+        {
+            id: 3,
+            name: 'kolya',
+            age: 29,
+            status: true,
+            address: {city: 'Lviv', street: 'Shevchenko', number: 121}
+        },
+        {
+            id: 4,
+            name: 'olya',
+            age: 28,
+            status: false,
+            address: {city: 'Ternopil', street: 'Shevchenko', number: 90}
+        },
+        {
+            id: 5,
+            name: 'max',
+            age: 30,
+            status: true,
+            address: {city: 'Lviv', street: 'Shevchenko', number: 115}
+        },
+        {
+            id: 6,
+            name: 'anya',
+            age: 31,
+            status: false,
+            address: {city: 'Kyiv', street: 'Shevchenko', number: 2}
+        },
+        {
+            id: 7,
+            name: 'oleg',
+            age: 28,
+            status: false,
+            address: {city: 'Ternopil', street: 'Shevchenko', number: 22}
+        },
+        {
+            id: 8,
+            name: 'andrey',
+            age: 29,
+            status: true,
+            address: {city: 'Lviv', street: 'Shevchenko', number: 43}
+        },
+        {
+            id: 9,
+            name: 'masha',
+            age: 30,
+            status: true,
+            address: {city: 'Kyiv', street: 'Shevchenko', number: 12}
+        },
+        {
+            id: 10,
+            name: 'olya',
+            age: 31,
+            status: false,
+            address: {city: 'Lviv', street: 'Shevchenko', number: 16}
+        },
+        {
+            id: 11,
+            name: 'max',
+            age: 31,
+            status: true,
+            address: {city: 'Ternopil', street: 'Shevchenko', number: 121}
+        }
+    ];
+    // - Создать три чекбокса. Каждый из них активирует фильтр для вышеуказаного массива. Фильтры могут работать как вместе так и по отдельности.
+    // 1й - отфильтровывает пользователей со статусом false (осталяет со статусом false)
+    // 2й - оставляет старше 29 лет включительно
+    // 3й - оставляет тех у кого город киев
+    // Данные выводить в документ
+    /*    let arrStream = document.querySelector('.load-array'),
+            inputs = document.querySelectorAll('input[name=filter]'),
+            conditions = [];
+        inputs.forEach(checkbox => {
+            checkbox.addEventListener('change', evt => {
+                if (evt.target.checked) {
+                    conditions.push(evt.target.id)
+                } else {
+                    conditions.splice(conditions.indexOf(evt.target.id))
+                }
+                console.log(conditions)
+                let filteredArr = usersWithAddress.filter(value => {
+                    return (conditions.includes('status') ? !(value.status) : true)
+                        && (conditions.includes('age') ? value.age >= 29 : true) &&
+                        (conditions.includes('city') ? value.address.city === 'Kyiv' :
+                            true)
+                })
+                while (arrStream.firstChild) {
+                    arrStream.removeChild(arrStream.firstChild);
+                }
+                filteredArr.forEach(value => {
+                    let block = document.createElement('div')
+                    block.innerText = `
+                    id:${value.id}
+                    name:${value.name}
+                    age: ${value.age}
+                    status:${value.status}
+                    adress:
+                        city:${value.address.city}
+                        street:${value.address.street}
+                        number:${value.address.number}`
+                    arrStream.append(block)
+                })
+            })
+        })*/
+
+
+
+    // *****(Прям овердоз с рекурсией) Создать функцию которая принимает
+    // какой-либо элемент DOM-структуры .Функция создает в боди 2 кнопки (назад/вперед)
+    // при нажатии вперед, вы переходите к дочернему элементу, при еще одном
+    // нажатии на "вперед", вы переходите к следующему дочернему элементу
+    // (лежащему на одном уровне)
+    // НО если у (какого-либо)дочеренего элемента есть дети, то нажатие "вперед" позволяет нам войти внутрь элемента и  выводит первого ребенка. и тд.
+    //     Когда все дети заканчиваются, мы выходим из данного дочернего элемента и переходим к следующему, лежащему с ним на одном уровне
+
+
+    // Овердоз мене здолав.
+
+    const DOMSurfer = (element) => {
+        console.log(element)
+        window.addEventListener('keydown', e => {
+            if (e.keyCode === 39) {
+                (element.children.length)
+                    ? DOMSurfer(element.firstElementChild)
+                    : (element.nextElementSibling)
+                        ? DOMSurfer(element.nextElementSibling)
+                        : (element.parentElement.nextElementSibling)
+                            ? DOMSurfer(element.parentElement.nextElementSibling)
+                            : console.log('Dead end')
+
+            }
+        })
+        window.addEventListener('keydown', e => {
+            if (e.keyCode === 37) {
+                (element.previousSibling)
+                    ? DOMSurfer(element.previousSibling)
+                    : (element.parentElement)
+                        ? DOMSurfer(element.parentElement)
+                        : console.log('Start')
+            }
+        })
+    }
+    DOMSurfer(document.body);
+
+    // - Напишите «Карусель» – ленту изображений, которую можно листать влево-вправо нажатием на стрелочки.
+    let carousel = document.getElementsByClassName('carousel')[0],
+        image = document.querySelectorAll('.image-frame'),
+        buttons = document.querySelectorAll('.switch');
+    let j = 0
+    buttons[1].addEventListener('click', () => {
+        if (j > -(image[0].offsetWidth * (image.length - 1))) {
+            j -= image[0].offsetWidth
+            console.log(j)
+            carousel.style.transform = `translateX(${j}px)`
+        }
+
+    })
+    buttons[0].addEventListener('click', () => {
+        if (j < 0) {
+            j += 600
+            console.log(j)
+            carousel.style.transform = `translateX(${j}px)`
+        }
+    })
+
+
+    //     Завдання важке для розуміння, але дуже легке в реалізації.
+    //     Тут треба буде погуглити
+    // *** При виділені сегменту тексту на сторінці він стає
+    // жирний/курсивний/або якось іншим способом змінює свій стан
+    let text = document.getElementsByClassName('some-text')[0]
+    document.addEventListener("mouseup",()=>{
+            const selection = getSelection()+''
+        text.innerHTML = text.innerHTML.replace(selection,
+            `<b>${selection}</b>`)
+    })
+</script>
+</body>
+</html>
