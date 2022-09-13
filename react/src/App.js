@@ -1,9 +1,9 @@
 import './App.css';
-import {Simpsons} from "./components/Simsons";
+import {CharacterGenerator} from "./components/CharacterGenerator";
 
 function App() {
   return (<div>
-    <Simpsons/>
+    <CharacterGenerator/>
       </div>
   );
 }
